@@ -2,9 +2,8 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="refresh" content="0; url=game/index.html">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Redirecting...</title>
+    <title>Vibecoding Hackday</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -16,9 +15,44 @@
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
         }
+        .content {
+            text-align: center;
+        }
+        h1 {
+            margin-bottom: 30px;
+            font-size: 2.5rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        .links {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.2rem;
+            padding: 15px 30px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 12px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        a:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+        }
     </style>
 </head>
 <body>
-    <p>Redirecting to TestSphere Cards game... <a href="game/index.html">Click here if not redirected</a></p>
+    <div class="content">
+        <h1>Vibecoding Hackday</h1>
+        <div class="links">
+            <a href="game/index.html">TestSphere Card Game</a>
+            <a href="vibecoding-blog-post.html">Read the Blog Post</a>
+        </div>
+    </div>
 </body>
 </html>

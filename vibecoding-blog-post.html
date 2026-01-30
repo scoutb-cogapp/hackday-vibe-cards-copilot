@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vibecoding: When Your Tools Become the Project</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 40px 20px;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            padding: 50px;
+            border-radius: 12px;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+        }
+
+        h1 {
+            color: #667eea;
+            margin-bottom: 30px;
+            font-size: 2.5rem;
+            line-height: 1.2;
+        }
+
+        h2 {
+            color: #764ba2;
+            margin-top: 40px;
+            margin-bottom: 20px;
+            font-size: 1.8rem;
+        }
+
+        p {
+            margin-bottom: 20px;
+            color: #333;
+            font-size: 1.1rem;
+        }
+
+        ul {
+            margin: 20px 0;
+            padding-left: 30px;
+        }
+
+        li {
+            margin-bottom: 10px;
+            color: #333;
+            font-size: 1.1rem;
+        }
+
+        code {
+            background: #f5f5f5;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.95em;
+            color: #764ba2;
+        }
+
+        em {
+            color: #666;
+        }
+
+        .nav {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .nav a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.1rem;
+            padding: 10px 20px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 8px;
+            transition: background 0.3s ease;
+        }
+
+        .nav a:hover {
+            background: rgba(255, 255, 255, 0.3);
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 30px 20px;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            h2 {
+                font-size: 1.5rem;
+            }
+
+            p, li {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="nav">
+        <a href="game/index.html">← Back to Game</a>
+    </div>
+    <div class="container">
+        <article>
+        <h1>Vibecoding: When Your Tools Become the Project</h1>
+        
+        <p>The hackday theme was "vibecoding" — coding by feel, prioritising process over polish. My plan was straightforward: build an automated workflow tracker that would log everything during the day (git commits, AI prompts, outputs), occasionally prompt me for reflections, then feed those notes to a custom-trained blog writing tool. I'd spent the previous evening training Claude on six of my past hackday posts to create a style guide. The idea was simple: let AI handle the tedious bits so I could focus on the interesting problems.</p>
+        
+        <p>That plan lasted until 1pm.</p>
+        
+        <h2>The GSD Experiment</h2>
+        
+        <p>I started with get-shit-done, a meta-prompting system for Claude Code that promised to solve "context rot" — the quality degradation that happens as Claude fills its context window. The repo's pitch was compelling: structured AI-assisted development with automatic tracking, atomic commits, and proper verification. It seemed perfect for capturing my workflow.</p>
+        
+        <p>After 45 minutes of installation faff (getting it added to my PATH, which wasn't mentioned in the docs, then reinstalling to get the CLI working), I set up a Claude Code project with Opus and started asking questions. Is GSD the right tool? What does it actually track? Where are the gaps?</p>
+        
+        <p>Claude Opus was decent at explaining how GSD worked from the readme but less brilliant at strategic advice. In the end, I decided to just start using it and see what happened.</p>
+        
+        <p>At 1pm — barely into setting up my project — I ran out of credits. It turned out GSD burns through tokens alarmingly fast. The automated tracking I'd hoped for was there, but the multi-agent orchestration (parallel researchers, plan checkers, verification agents) came with a cost I hadn't anticipated.</p>
+        
+        <p>Pizza arrived just then, which felt appropriately timed for eating lunch alone at my desk rather than chatting with colleagues.</p>
+        
+        <h2>The Pivot</h2>
+        
+        <p>I restarted completely with a different goal: build a simple web app using different AI tools and compare the results. The app itself would be straightforward — a card game interface for TestSphere, a testing concepts card deck from the Ministry of Testing.</p>
+        
+        <p>A quick note about TestSphere: it's a brilliant resource for testers, created by the Ministry of Testing community (where I'm an ambassador). The deck contains 160 cards across seven categories — Heuristics, Techniques, Feelings, Quality Aspects, Patterns, Dealing with Change, and Observability. Each card prompts thinking about different aspects of software testing. The physical deck is used for everything from sprint planning to retrospectives, and I'd just discovered the digital version was available to MoT Pro members. Building a web interface seemed like a good test project.</p>
+        
+        <p>Before diving into the card game, I tried one more experiment. I gave Gemini Deep Research an elaborate prompt asking it to research clean, accessible web development — semantic HTML, CSS, and JavaScript only where necessary. The goal was to create a custom agent that would help me build with minimal frameworks, prioritising sustainability and accessibility.</p>
+        
+        <p>Gemini took a while rephrasing my requirements, which looked promising. I said go ahead and switched to building the actual card game. Two hours later, I checked back. Still saying "starting research". I later discovered that reloading the page might have shown the results — maybe it had finished within minutes and I'd never know. But by then I'd moved on.</p>
+        
+        <h2>Copilot vs Figma Make</h2>
+        
+        <p>I gave GitHub Copilot a straightforward prompt: build a web app that displays five card stacks (one for each card type), shows the colour-coded backs, and lets users click to draw random cards. Static hosting on GitHub Pages. It worked on the first attempt. Not perfect — there were snags to iron out — but I had something functional in about two minutes.</p>
+        
+        <p>I gave nearly identical instructions to Figma Make, which generated a polished React version. Both tools needed work, but in different ways.</p>
+        
+        <p>The Figma Make version had three immediate issues:</p>
+        <ul>
+            <li>Wrong number mapping in the card configs</li>
+            <li>Wrong capitalisation (files used "Patterns", not "patterns")</li>
+            <li>Missing space before the card number in file paths</li>
+        </ul>
+        
+        <p><em>[Note: code snippet showing the three bullet points from Copilot's fix would go here]</em></p>
+        
+        <p>The React deployment involved considerably more faff. The images weren't in Vite's <code>public</code> folder, so they weren't copied during build. The paths didn't account for GitHub Pages' base URL. Copilot helped me fix it — moving the TestSphere Cards folder to <code>public</code>, adding <code>import.meta.env.BASE_URL</code> to the image paths, updating the Vite config — but it was a lot of back-and-forth.</p>
+        
+        <p><em>[Note: brief snippet showing the BASE_URL fix would be useful here]</em></p>
+        
+        <p>The vanilla version from Copilot needed less ceremony. Create a root <code>index.html</code> redirect for GitHub Pages (since the game wasn't in the repo root), push, enable Pages in the GitHub settings. Done.</p>
+        
+        <p>I ran Lighthouse on both. The vanilla version scored 87, the React version 74. Neither had accessibility issues flagged by axe, which was reassuring given TestSphere's focus on quality.</p>
+        
+        <h2>What Vibecoding Actually Meant</h2>
+        
+        <p>By 3pm, I'd abandoned my original project entirely and built something else twice over. The blog writing tool I'd trained the night before was sitting unused in a Claude project, waiting for notes I'd been keeping manually in a local markdown file — exactly the tedious work I'd hoped to avoid.</p>
+        
+        <p>What struck me was how much overhead the "polished" tools added. Not just in bundle size, but in deployment complexity and setup time. For a hackday project where speed matters, that friction is more costly than usual. Figma Make produced something that looked professional immediately, but getting it actually deployed took longer than Copilot's scrappier output.</p>
+        
+        <p>The irony wasn't lost on me: I'd spent the day evaluating AI coding tools by having AI coding tools build the same thing twice, while manually documenting everything in the exact way I'd hoped to automate. The automated workflow tracker became the thing I didn't have time to build because I was too busy trying to build it.</p>
+        
+        <p>That's probably the most honest summary of vibecoding I can offer: sometimes the process reveals more than the product ever would.</p>
+        </article>
+    </div>
+</body>
+</html>
