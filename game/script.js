@@ -75,8 +75,29 @@ function revealCard(cardType, revealedCardsContainer) {
     
     cardElement.appendChild(cardImage);
     
+    // Add click handler to show card in modal
+    cardElement.addEventListener('click', () => {
+        showCardModal(cardPath, `${cardType} Card`);
+    });
+    
     // Add the card to the top of the revealed cards
     revealedCardsContainer.insertBefore(cardElement, revealedCardsContainer.firstChild);
+}
+
+// Show card in modal
+function showCardModal(imageSrc, altText) {
+    const modal = document.getElementById('cardModal');
+    const modalImage = document.getElementById('modalImage');
+    
+    modalImage.src = imageSrc;
+    modalImage.alt = altText;
+    modal.classList.add('active');
+}
+
+// Close modal
+function closeCardModal() {
+    const modal = document.getElementById('cardModal');
+    modal.classList.remove('active');
 }
 
 // Initialize event listeners
@@ -92,4 +113,8 @@ document.addEventListener('DOMContentLoaded', () => {
             revealCard(cardType, revealedCardsContainer);
         });
     });
+    
+    // Modal close handler
+    const modal = document.getElementById('cardModal');
+    modal.addEventListener('click', closeCardModal);
 });
