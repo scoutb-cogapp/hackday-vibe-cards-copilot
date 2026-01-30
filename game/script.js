@@ -58,7 +58,7 @@ function getRandomCard(cardType) {
     // Mark this card as drawn
     drawnCards[cardType].push(cardNumber);
     
-    return `TestSphere Cards/${deck.prefix}${cardNumber}.png`;
+    return `../TestSphere Cards/${deck.prefix}${cardNumber}.png`;
 }
 
 // Reveal a card when stack is clicked
