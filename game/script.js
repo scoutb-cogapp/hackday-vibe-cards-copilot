@@ -42,7 +42,6 @@ function getRandomCard(cardType) {
             availableCards.push(i);
         }
     }
-    
     // If all cards have been drawn, reset the deck
     if (availableCards.length === 0) {
         drawnCards[cardType] = [];
@@ -50,15 +49,17 @@ function getRandomCard(cardType) {
             availableCards.push(i);
         }
     }
-    
     // Pick a random card
     const randomIndex = Math.floor(Math.random() * availableCards.length);
     const cardNumber = availableCards[randomIndex];
-    
     // Mark this card as drawn
     drawnCards[cardType].push(cardNumber);
-    
-    return `../TestSphere Cards/${deck.prefix}${cardNumber}.png`;
+    // Use new naming for first card, numbered for others
+    if (cardNumber === 1) {
+        return `../TestSphere Cards/${deck.prefix}.png`;
+    } else {
+        return `../TestSphere Cards/${deck.prefix}${cardNumber}.png`;
+    }
 }
 
 // Reveal a card when stack is clicked
